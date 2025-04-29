@@ -14,8 +14,6 @@ public class Discount {
         this.totalAfterDiscount = totalAfterDiscount;
     }
 
-
-
     private double calculatePriceBeforeDiscount(double a, int b) {
      return totalBeforeDiscount = a + b;
     }

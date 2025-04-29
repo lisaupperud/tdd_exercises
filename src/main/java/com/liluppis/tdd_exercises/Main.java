@@ -1,33 +1,42 @@
 package com.liluppis.tdd_exercises;
 
+import com.liluppis.tdd_exercises.dependencyinversion.Bird;
+import com.liluppis.tdd_exercises.dependencyinversion.Dog;
+import com.liluppis.tdd_exercises.dependencyinversion.IAnimal;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-
-
-    // Prices before discount
-    double item1Total = item1Price * item1Quantity;
-    double item2Total = item2Price * item2Quantity;
-    double totalBeforeDiscount = item1Total + item2Total;
-    System.out.println("Total before discount: $" + totalBeforeDiscount);
+    public static void main(String[] args) {
 
 
 
-    // Discount
-    double discount = 10.0;
-    double discountAmount = totalBeforeDiscount * (discount / 100);
-    double totalAfterDiscount = totalBeforeDiscount - discountAmount;
-    System.out.println("Discount: $" + discountAmount);
-    System.out.println("Total after discount: $" + totalAfterDiscount);
 
 
-    // Another method of calculating total for the same items
-    double anotherItem1Total = item1Price * item1Quantity;
-    double anotherItem2Total = item2Price * item2Quantity;
-    double anotherTotalBeforeDiscount = anotherItem1Total + anotherItem2Total;
-    double anotherDiscountAmount = anotherTotalBeforeDiscount * (discount / 100);
-    double anotherTotalAfterDiscount = anotherTotalBeforeDiscount - anotherDiscountAmount;
-    System.out.println("Another total before discount: $" + anotherTotalBeforeDiscount);
-    System.out.println("Another total after discount: $" + anotherTotalAfterDiscount)
+
+        // ------------------ EXERCISE 4 -------------------
+
+        Bird bird = new Bird("Crow");
+        Dog dog = new Dog("Ellie");
+
+        // the following lines of code do not work since the list is of 'Bird'
+        /*List<Bird> animalList = new ArrayList<>();
+        animalList.add(bird);
+        animalList.add(dog);*/
+
+        // by changing the datatype of the list to the interface 'IAnimal'
+        // we can add instances of both Bird and Dog since they implement the IF
+        List<IAnimal> animalList = new ArrayList<>();
+        animalList.add(bird);
+        animalList.add(dog);
+        System.out.println(animalList);
+
+
+
+
+    }
 
 
 }
